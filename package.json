@@ -1,0 +1,7 @@
+{
+  "name": "quizz-calidad-de-software",
+  "version": "1.0.0",
+  "description": "Quiz Interactivo Calidad de Software e ISO/IEC 33000 - SENA",
+  "type": "module",
+  "private": true
+}

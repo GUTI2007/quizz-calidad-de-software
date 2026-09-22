@@ -271,12 +271,17 @@ class RankingManager {
     try {
       const res = await fetch(this.apiUrl, { cache: 'no-store' });
       if (res.ok) {
-        this.cloudAvailable = true;
-        const scores = await res.json();
-        if (Array.isArray(scores) && scores.length > 0) {
-          this.cache = scores;
-          this.saveLocalScores(scores);
-          return scores;
+        const contentType = res.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          this.cloudAvailable = true;
+          const scores = await res.json();
+          if (Array.isArray(scores) && scores.length > 0) {
+            this.cache = scores;
+            this.saveLocalScores(scores);
+            return scores;
+          }
+        } else {
+          this.cloudAvailable = false;
         }
       } else {
         // Entorno local o estático donde /api/scores no está desplegado (evita spam de errores)
@@ -305,11 +310,14 @@ class RankingManager {
           body: JSON.stringify(player)
         });
         if (res.ok) {
-          const updated = await res.json();
-          if (Array.isArray(updated) && updated.length > 0) {
-            this.cache = updated;
-            this.saveLocalScores(updated);
-            return updated;
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            const updated = await res.json();
+            if (Array.isArray(updated) && updated.length > 0) {
+              this.cache = updated;
+              this.saveLocalScores(updated);
+              return updated;
+            }
           }
         }
       } catch (e) {
