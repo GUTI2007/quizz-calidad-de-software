@@ -1,132 +1,135 @@
 /**
  * ==========================================================================
- * QUIZ INTERACTIVO: ÁRBOLES DE DECISIÓN Y CLASIFICACIÓN EN MACHINE LEARNING
- * Presentación: Instructora Martha Ester Gómez Adasme
+ * QUIZ INTERACTIVO: CALIDAD DE SOFTWARE E ISO/IEC 33000 (CHAZIN FOOD)
+ * Competencia: Negociación · Instructor: Jairo Augusto Arboleda Londoño
  * Centro de Servicios y Gestión Empresarial - SENA
  * ==========================================================================
  */
 
-// 1. BANCO DE PREGUNTAS (100% Fiel a las 11 diapositivas del PDF, opciones balanceadas en longitud)
+// CLAVE MAESTRA DE ADMINISTRADOR PARA REINICIAR PUNTAJES (Personalizable)
+const ADMIN_MASTER_KEY = 'sena2026';
+
+// 1. BANCO DE PREGUNTAS (Fiel al documento CALIDAD-DE-SOFTWARE.pdf, opciones balanceadas)
 const QUIZ_QUESTIONS = [
   {
     id: 1,
-    slide: "Diapositiva 2: ¿Qué es un Árbol de Decisión?",
-    question: "¿A qué tipo de aprendizaje en Machine Learning corresponden los Árboles de Decisión?",
+    slide: "Diapositiva 2: Contexto Histórico",
+    question: "¿Qué significan las siglas del antecedente normativo conocido como SPICE?",
     options: [
-      { text: "Aprendizaje Supervisado", correct: true },
-      { text: "Aprendizaje No Supervisado", correct: false },
-      { text: "Aprendizaje por Refuerzo", correct: false },
-      { text: "Aprendizaje Auto-asistido", correct: false }
+      { text: "Software Process Improvement and Capability Determination", correct: true },
+      { text: "System Programming Integration and Code Evaluation", correct: false },
+      { text: "Standard Process Inspection and Certification Enterprise", correct: false },
+      { text: "Software Project Infrastructure and Compliance Engine", correct: false }
     ],
-    explanation: "¡Correcto! En la diapositiva 2 se indica que es un método de Aprendizaje Supervisado no paramétrico para clasificación y regresión."
+    explanation: "¡Correcto! SPICE significa 'Software Process Improvement and Capability Determination' y correspondió a la norma ISO/IEC 15504, antecedente directo de la actual familia ISO/IEC 33000."
   },
   {
     id: 2,
-    slide: "Diapositiva 3: Componentes del Árbol",
-    question: "¿Cuál es el punto de inicio del árbol donde se formula la primera pregunta sobre los datos?",
+    slide: "Diapositiva 2 y 3: Marco Normativo Actual",
+    question: "¿Cuál es la familia de normas internacionales que representa el marco actual para la evaluación de procesos de software?",
     options: [
-      { text: "Nodo Hoja", correct: false },
-      { text: "Nodo Raíz", correct: true },
-      { text: "Rama Base", correct: false },
-      { text: "Tronco ML", correct: false }
+      { text: "Familia ISO/IEC 33000", correct: true },
+      { text: "Familia ISO/IEC 9001", correct: false },
+      { text: "Familia ISO/IEC 27001", correct: false },
+      { text: "Familia IEEE 802", correct: false }
     ],
-    explanation: "¡Exacto! Según la anatomía del árbol (diapositiva 3), el Nodo Raíz es el punto de partida y la primera evaluación."
+    explanation: "¡Exacto! La Familia ISO/IEC 33000 constituye el marco internacional moderno para la evaluación de procesos, determinar su capacidad y promover la mejora continua."
   },
   {
     id: 3,
-    slide: "Diapositiva 3: Anatomía del Árbol",
-    question: "¿En qué componente del árbol se encuentran las predicciones o decisiones finales?",
+    slide: "Diapositiva 3: Marco Normativo Actual",
+    question: "Dentro de la familia ISO/IEC 33000, ¿qué norma define específicamente los conceptos y el vocabulario?",
     options: [
-      { text: "Nodos Hoja", correct: true },
-      { text: "Nodos Raíz", correct: false },
-      { text: "Nodos Guía", correct: false },
-      { text: "Sub-ramas", correct: false }
+      { text: "ISO/IEC 33001", correct: true },
+      { text: "ISO/IEC 33020", correct: false },
+      { text: "ISO/IEC 33004", correct: false },
+      { text: "ISO/IEC TS 33061", correct: false }
     ],
-    explanation: "¡Muy bien! Los Nodos Hoja (diapositiva 3) contienen las predicciones finales (clases o valores predichos)."
+    explanation: "¡Muy bien! Diapositiva 3: ISO/IEC 33001 establece los conceptos generales y el vocabulario técnico para todo el marco de evaluación de procesos."
   },
   {
     id: 4,
-    slide: "Diapositiva 2 y 11: Estructura y Reglas",
-    question: "¿Qué tipo de reglas lógicas aprende automáticamente un árbol a partir del entrenamiento?",
+    slide: "Diapositiva 3: Marco Normativo Actual",
+    question: "¿Qué norma de la familia ISO/IEC 33000 establece el marco formal de medición de procesos?",
     options: [
-      { text: "Reglas 'if-then-else'", correct: true },
-      { text: "Matrices de Markov", correct: false },
-      { text: "Series de Fourier", correct: false },
-      { text: "Ecuaciones gaussianas", correct: false }
+      { text: "ISO/IEC 33020", correct: true },
+      { text: "ISO/IEC 33001", correct: false },
+      { text: "ISO/IEC 33002", correct: false },
+      { text: "ISO/IEC 33004", correct: false }
     ],
-    explanation: "¡Excelente! La presentación destaca que genera reglas intuitivas 'if-then-else' (si-entonces-sino) similares a la toma de decisiones humana."
+    explanation: "¡Excelente! Diapositiva 3: La norma ISO/IEC 33020 establece el marco de medición formal para cuantificar la capacidad de los procesos evaluados."
   },
   {
     id: 5,
-    slide: "Diapositiva 4: Ventajas del Modelo",
-    question: "¿Cuál es una ventaja clave de los Árboles de Decisión mencionada en la presentación?",
+    slide: "Diapositiva 4: Evaluación de Procesos",
+    question: "Según la presentación, ¿cuál es el principio clave al evaluar la calidad de los procesos?",
     options: [
-      { text: "Requieren normalizar todas las variables obligatoriamente", correct: false },
-      { text: "Son fáciles de interpretar y requieren preparación mínima", correct: true },
-      { text: "Funcionan exclusivamente con datos numéricos continuos", correct: false },
-      { text: "Ocultan su razonamiento comportándose como caja negra", correct: false }
+      { text: "No solo si el software funciona: se analiza cómo se desarrolla, documenta y gestiona", correct: true },
+      { text: "Evaluar únicamente que el código compile sin advertencias en consola", correct: false },
+      { text: "Comprobar exclusivamente el costo financiero total del proyecto de software", correct: false },
+      { text: "Verificar únicamente el número de usuarios registrados en la base de datos", correct: false }
     ],
-    explanation: "¡Correcto! Diapositiva 4: Destacan por su interpretabilidad (fáciles de visualizar) y preparación mínima (no necesitan normalización)."
+    explanation: "¡Así es! Diapositiva 4: No solo se evalúa si el software funciona, sino cómo se desarrolla y gestiona en sus áreas de Ingeniería, Soporte y Gestión."
   },
   {
     id: 6,
-    slide: "Diapositiva 5: Impureza de Gini",
-    question: "En el criterio de división por Impureza de Gini, ¿qué representa un valor de Gini = 0?",
+    slide: "Diapositiva 5: Modelo de Capacidad",
+    question: "¿Cuál es la escala numérica de referencia del modelo de capacidad de procesos (ISO/IEC 15504 hacia 33000)?",
     options: [
-      { text: "Nodo con división cancelada por falta de muestras", correct: false },
-      { text: "Máxima mezcla y confusión binaria entre clases", correct: false },
-      { text: "Nodo puro: todas las muestras son de una sola clase", correct: true },
-      { text: "Presencia de un error en el cálculo de varianza", correct: false }
+      { text: "Escala de niveles del 0 al 5", correct: true },
+      { text: "Escala porcentual del 1 al 10", correct: false },
+      { text: "Escala de letras de la A a la F", correct: false },
+      { text: "Escala binaria de 0 a 1", correct: false }
     ],
-    explanation: "¡Exacto! Diapositiva 5: Gini = 0 representa un nodo puro (100% de una sola clase). En clasificación binaria, Gini ≈ 0.5 es máxima mezcla."
+    explanation: "¡Correcto! Diapositiva 5: El enfoque de capacidad de procesos se fundamenta en una escala de referencia de 0 a 5 niveles para comprender la madurez del proceso."
   },
   {
     id: 7,
-    slide: "Diapositiva 8: Implementación en Python",
-    question: "¿Cuál es la clase de Scikit-Learn para entrenar un árbol clasificador en Python?",
+    slide: "Diapositiva 6: Proyecto Chazin Food",
+    question: "¿A cuál proyecto formativo desarrollado por los aprendices se le aplicó el enfoque de evaluación de calidad ISO/IEC 33000?",
     options: [
-      { text: "DecisionTreeClassifier", correct: true },
-      { text: "LinearRegressionTree", correct: false },
-      { text: "RandomForestSplitter", correct: false },
-      { text: "SupportVectorClassifier", correct: false }
+      { text: "Chazin Food", correct: true },
+      { text: "Fast Delivery App", correct: false },
+      { text: "SENA Gourmet Cloud", correct: false },
+      { text: "EcoResto Manager", correct: false }
     ],
-    explanation: "¡Genial! Diapositiva 8: La clase oficial en Scikit-Learn es DecisionTreeClassifier."
+    explanation: "¡Genial! Diapositiva 6: El proyecto Chazin Food es el caso real aplicado donde se analizan evidencias en Ingeniería, Soporte y Gestión."
   },
   {
     id: 8,
-    slide: "Diapositiva 8: Métodos de Scikit-Learn",
-    question: "¿Qué método de Scikit-Learn se ejecuta para entrenar el modelo con los datos (X, y)?",
+    slide: "Diapositiva 7: Autoevaluación Académica",
+    question: "En la autoevaluación de Chazin Food, ¿cuáles áreas fueron identificadas con situación 'Consolidada'?",
     options: [
-      { text: "predict(X)", correct: false },
-      { text: "score(X, y)", correct: false },
-      { text: "fit(X, y)", correct: true },
-      { text: "train(X, y)", correct: false }
+      { text: "Análisis, Diseño, Desarrollo (web/móvil) y Soporte", correct: true },
+      { text: "Pruebas de estrés masivo y automatización total CI/CD", correct: false },
+      { text: "Métricas formales cuantitativas y certificación internacional", correct: false },
+      { text: "Gestión financiera y mercadeo digital omnicanal", correct: false }
     ],
-    explanation: "¡Así es! Diapositiva 8: fit(X, y) entrena el modelo; predict(X) genera predicciones y score(X, y) calcula la precisión."
+    explanation: "¡Excelente! Diapositiva 7: Análisis (requisitos/historias), Diseño (arquitectura/prototipos), Desarrollo (web/móvil funcional) y Soporte (Git/GitHub/documentación) figuran como consolidados."
   },
   {
     id: 9,
-    slide: "Diapositiva 9 y 10: Hiperparámetros y Sobreajuste",
-    question: "¿Qué hiperparámetro limita la profundidad del árbol para prevenir el sobreajuste (overfitting)?",
+    slide: "Diapositiva 7 y 9: Oportunidades y Plan de Mejora",
+    question: "¿Cuáles son las áreas clave que la autoevaluación de Chazin Food identificó como 'Por fortalecer'?",
     options: [
-      { text: "criterion", correct: false },
-      { text: "max_depth", correct: true },
-      { text: "leaf_size", correct: false },
-      { text: "bootstrap", correct: false }
+      { text: "Formalización de pruebas, métricas del proceso y mejora continua", correct: true },
+      { text: "Diseño gráfico de logotipos y compra de servidores físicos", correct: false },
+      { text: "Reescribir todo el código fuente en lenguaje ensamblador", correct: false },
+      { text: "Eliminar el control de versiones con Git para acelerar entregas", correct: false }
     ],
-    explanation: "¡Muy bien! Diapositiva 9 y 10: Limitar max_depth es la principal estrategia para evitar que el árbol crezca sin control y memorice datos."
+    explanation: "¡Muy bien! Diapositivas 7 y 9: Las oportunidades de fortalecimiento y la ruta de mejora apuntan a formalizar pruebas, crear KPIs de procesos y ciclos de mejora continua."
   },
   {
     id: 10,
-    slide: "Diapositiva 10: Técnicas contra el Sobreajuste",
-    question: "¿Cómo se llama la técnica que simplifica el modelo eliminando ramas poco informativas?",
+    slide: "Diapositiva 8: Evidencias del Proceso",
+    question: "¿Cuáles son las principales tecnologías del desarrollo funcional de Chazin Food evidenciadas en el documento?",
     options: [
-      { text: "Poda (Pruning)", correct: true },
-      { text: "Riego (Watering)", correct: false },
-      { text: "Tala (Logging)", correct: false },
-      { text: "Corte (Trimming)", correct: false }
+      { text: "React + JavaScript, Flutter + Dart, MySQL y Git/GitHub", correct: true },
+      { text: "Ruby on Rails, Cobol, Oracle DB y SVN", correct: false },
+      { text: "PHP nativo, Visual Basic 6, Access y FTP", correct: false },
+      { text: "C++ monolítico, Pascal, SQLite y Dropbox", correct: false }
     ],
-    explanation: "¡Excelente! Diapositiva 10: La Poda (pruning) simplifica el modelo eliminando ramas poco informativas para mejorar la generalización."
+    explanation: "¡Fantástico! Diapositiva 8: Las evidencias técnicas de Chazin Food demuestran un stack moderno: sistema web en React + JS, app móvil en Flutter + Dart, base de datos en MySQL y control de versiones en Git/GitHub."
   }
 ];
 
@@ -208,20 +211,43 @@ class AudioManager {
   }
 }
 
-// 3. SISTEMA DE RANKING Y PERSISTENCIA (Sincronización en la Nube en Tiempo Real)
+// Detectar si estamos en protocolo local de archivo (doble clic en index.html)
+const isFileProtocol = typeof window !== 'undefined' && window.location.protocol === 'file:';
+
+// 3. SISTEMA DE RANKING Y PERSISTENCIA (Sincronización en la Nube y LocalStorage)
 class RankingManager {
   constructor() {
-    this.storageKey = 'sena_tree_quiz_scores_v3';
-    this.cache = this.getLocalScores();
+    this.storageKey = 'sena_calidad_software_scores_v1';
     this.apiUrl = '/api/scores';
+    // Si estamos en file:// no intentamos conexiones remotas para evitar errores de CORS
+    this.cloudAvailable = isFileProtocol ? false : null;
+    
+    // Lista inicial de referencia con el equipo SENA para competencia sana (Podio + Puestos 4+)
+    this.initialRanking = [
+      { name: "Jairo Arboleda (Instructor)", avatar: "🛡️", score: 1500, correct: 10, time: 28, date: "2026-09-20" },
+      { name: "Samuel Gutiérrez", avatar: "📊", score: 1420, correct: 10, time: 35, date: "2026-09-21" },
+      { name: "Henry Caballero", avatar: "⚡", score: 1360, correct: 10, time: 42, date: "2026-09-21" },
+      { name: "Juan José Gallego", avatar: "📋", score: 1290, correct: 9, time: 46, date: "2026-09-21" },
+      { name: "Alexis Gómez", avatar: "🚀", score: 1220, correct: 9, time: 51, date: "2026-09-21" },
+      { name: "Emanuel Henao", avatar: "🏆", score: 1150, correct: 8, time: 55, date: "2026-09-21" },
+      { name: "Mariana Restrepo", avatar: "🛡️", score: 1080, correct: 8, time: 59, date: "2026-09-21" },
+      { name: "Mateo Valencia", avatar: "⚡", score: 990, correct: 7, time: 64, date: "2026-09-21" }
+    ];
+
+    this.cache = this.getLocalScores();
   }
 
   getLocalScores() {
     try {
       const data = localStorage.getItem(this.storageKey);
-      return data ? JSON.parse(data) : [];
+      if (data === null) {
+        // Primera vez que se abre la aplicación: precargar con el equipo SENA
+        this.saveLocalScores(this.initialRanking);
+        return [...this.initialRanking];
+      }
+      return JSON.parse(data);
     } catch (e) {
-      return [];
+      return [...this.initialRanking];
     }
   }
 
@@ -237,59 +263,80 @@ class RankingManager {
 
   // Cargar puntajes desde la nube (Gist / API Vercel)
   async fetchCloudScores() {
+    // Si estamos en file:// o ya se detectó que la API no existe en este servidor local, no llamar
+    if (isFileProtocol || this.cloudAvailable === false) {
+      return this.cache;
+    }
+
     try {
       const res = await fetch(this.apiUrl, { cache: 'no-store' });
       if (res.ok) {
+        this.cloudAvailable = true;
         const scores = await res.json();
-        if (Array.isArray(scores)) {
+        if (Array.isArray(scores) && scores.length > 0) {
           this.cache = scores;
           this.saveLocalScores(scores);
           return scores;
         }
+      } else {
+        // Entorno local o estático donde /api/scores no está desplegado (evita spam de errores)
+        this.cloudAvailable = false;
       }
     } catch (e) {
-      // Si está offline o en desarrollo local, continúa con la caché
+      this.cloudAvailable = false;
     }
     return this.cache;
   }
 
   // Guardar puntaje en la nube y localmente
   async addEntry(player) {
-    // Actualizar inmediatamente la caché local
+    // 1. Actualizar inmediatamente la caché local
     this.cache.push(player);
     this.cache.sort((a, b) => b.score - a.score || a.time - b.time);
     this.cache = this.cache.slice(0, 50);
     this.saveLocalScores(this.cache);
 
-    // Enviar a la nube en segundo plano
-    try {
-      const res = await fetch(this.apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(player)
-      });
-      if (res.ok) {
-        const updated = await res.json();
-        if (Array.isArray(updated)) {
-          this.cache = updated;
-          this.saveLocalScores(updated);
-          return updated;
+    // 2. Enviar a la nube solo si la API está confirmada en el entorno (ej: Vercel)
+    if (!isFileProtocol && this.cloudAvailable !== false) {
+      try {
+        const res = await fetch(this.apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(player)
+        });
+        if (res.ok) {
+          const updated = await res.json();
+          if (Array.isArray(updated) && updated.length > 0) {
+            this.cache = updated;
+            this.saveLocalScores(updated);
+            return updated;
+          }
         }
+      } catch (e) {
+        this.cloudAvailable = false;
       }
-    } catch (e) {
-      console.warn("Error guardando en la nube:", e);
     }
     return this.cache;
   }
 
-  // Limpiar puntajes de la nube y de la caché
-  async clearScores() {
+  // Limpiar puntajes de la nube y de la caché (Exclusivo con Clave de Administrador)
+  async clearScores(adminKey) {
     this.cache = [];
     this.saveLocalScores([]);
-    try {
-      await fetch(this.apiUrl, { method: 'DELETE' });
-    } catch (e) {
-      console.warn("Error limpiando en la nube:", e);
+    if (!isFileProtocol && this.cloudAvailable !== false) {
+      try {
+        await fetch(this.apiUrl, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-key': adminKey,
+            'Authorization': `Bearer ${adminKey}`
+          },
+          body: JSON.stringify({ adminKey })
+        });
+      } catch (e) {
+        this.cloudAvailable = false;
+      }
     }
   }
 }
@@ -378,12 +425,24 @@ class QuizApp {
 
       // Ranking
       podiumWrapper: document.getElementById('podium-wrapper'),
+      leaderboardRestHeader: document.getElementById('leaderboard-rest-header'),
+      restBadgeCount: document.getElementById('rest-badge-count'),
       leaderboardList: document.getElementById('leaderboard-list'),
 
       // Modal de revisión
       reviewModal: document.getElementById('review-modal'),
       closeModalBtn: document.getElementById('close-modal-btn'),
       reviewModalBody: document.getElementById('review-modal-body'),
+
+      // Modal de Seguridad / Administrador (Exclusivo para reiniciar puntos)
+      adminModal: document.getElementById('admin-modal'),
+      closeAdminModalBtn: document.getElementById('close-admin-modal-btn'),
+      cancelAdminBtn: document.getElementById('cancel-admin-btn'),
+      confirmResetBtn: document.getElementById('confirm-reset-btn'),
+      adminPassInput: document.getElementById('admin-password-input'),
+      toggleAdminPassBtn: document.getElementById('toggle-admin-pass-btn'),
+      adminErrorMsg: document.getElementById('admin-error-msg'),
+      resetLeaderboardBtn: document.getElementById('reset-leaderboard-btn'),
 
       // Toast & Audio Toggle
       soundToggleBtn: document.getElementById('sound-toggle-btn'),
@@ -400,13 +459,19 @@ class QuizApp {
     this.bindEvents();
     this.renderLeaderboard();
 
-    // Sincronizar inmediatamente con la base de datos en la nube
-    await this.syncWithCloud();
+    // Solo consultar la nube si estamos bajo protocolo web (http: o https:) y no en archivo local file://
+    if (!isFileProtocol) {
+      await this.syncWithCloud();
 
-    // Polling en tiempo real cada 4 segundos para que los 16 aprendices se vean aparecer en vivo
-    setInterval(() => {
-      this.syncWithCloud();
-    }, 4000);
+      // Solo si la nube está confirmada y activa (ej: desplegado en Vercel) activamos el polling cada 6s
+      if (this.ranking.cloudAvailable === true) {
+        setInterval(() => {
+          if (this.ranking.cloudAvailable) {
+            this.syncWithCloud();
+          }
+        }, 6000);
+      }
+    }
   }
 
   async syncWithCloud() {
@@ -414,12 +479,12 @@ class QuizApp {
     this.renderLeaderboard();
   }
 
-  // Detectar si el usuario abrió un link con reto (?retador=Alexis&score=1250&avatar=🤖)
+  // Detectar si el usuario abrió un link con reto (?retador=Alexis&score=1250&avatar=🛡️)
   checkUrlChallenge() {
     const params = new URLSearchParams(window.location.search);
     const retador = params.get('retador') || params.get('challenger');
     const score = parseInt(params.get('score'), 10);
-    const avatar = params.get('avatar') || '⚡';
+    const avatar = params.get('avatar') || '🛡️';
 
     if (retador && !isNaN(score)) {
       this.challenger = { name: retador, score, avatar };
@@ -485,22 +550,98 @@ class QuizApp {
       this.showToast(enabled ? 'Sonido activado' : 'Sonido silenciado');
     });
 
-    // Reiniciar ranking a 0 en la nube y local
-    const resetBtn = document.getElementById('reset-leaderboard-btn');
-    if (resetBtn) {
-      resetBtn.addEventListener('click', async () => {
-        if (confirm('¿Estás seguro de que deseas reiniciar todos los puntajes a cero para todos los computadores?')) {
-          await this.ranking.clearScores();
-          this.renderLeaderboard();
-          this.showToast('🗑️ Puntajes reiniciados a cero en la nube');
-        }
+    // Botón de Reiniciar Tabla: Abre el modal de seguridad exclusivo para el administrador
+    if (this.dom.resetLeaderboardBtn) {
+      this.dom.resetLeaderboardBtn.addEventListener('click', () => this.openAdminModal());
+    }
+
+    // Eventos del Modal de Administrador
+    if (this.dom.closeAdminModalBtn) {
+      this.dom.closeAdminModalBtn.addEventListener('click', () => this.closeAdminModal());
+    }
+    if (this.dom.cancelAdminBtn) {
+      this.dom.cancelAdminBtn.addEventListener('click', () => this.closeAdminModal());
+    }
+    if (this.dom.confirmResetBtn) {
+      this.dom.confirmResetBtn.addEventListener('click', () => this.handleAdminResetSubmit());
+    }
+    if (this.dom.toggleAdminPassBtn) {
+      this.dom.toggleAdminPassBtn.addEventListener('click', () => this.toggleAdminPasswordVisibility());
+    }
+    if (this.dom.adminPassInput) {
+      this.dom.adminPassInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') this.handleAdminResetSubmit();
       });
+    }
+    if (this.dom.adminModal) {
+      this.dom.adminModal.addEventListener('click', (e) => {
+        if (e.target === this.dom.adminModal) this.closeAdminModal();
+      });
+    }
+  }
+
+  // Métodos del Modal de Seguridad de Administrador
+  openAdminModal() {
+    this.audio.playClick();
+    if (!this.dom.adminModal) return;
+    this.dom.adminPassInput.value = '';
+    this.dom.adminErrorMsg.style.display = 'none';
+    const card = this.dom.adminModal.querySelector('.admin-modal-card');
+    if (card) card.classList.remove('modal-shake');
+    this.dom.adminModal.style.display = 'flex';
+    setTimeout(() => this.dom.adminPassInput.focus(), 150);
+  }
+
+  closeAdminModal() {
+    this.audio.playClick();
+    if (!this.dom.adminModal) return;
+    this.dom.adminModal.style.display = 'none';
+    this.dom.adminPassInput.value = '';
+    this.dom.adminErrorMsg.style.display = 'none';
+  }
+
+  toggleAdminPasswordVisibility() {
+    this.audio.playClick();
+    const isPass = this.dom.adminPassInput.type === 'password';
+    this.dom.adminPassInput.type = isPass ? 'text' : 'password';
+    this.dom.toggleAdminPassBtn.textContent = isPass ? '🙈' : '👁️';
+  }
+
+  async handleAdminResetSubmit() {
+    const enteredKey = this.dom.adminPassInput.value.trim();
+
+    // Validación de seguridad estricta: solo el creador con la clave maestra puede reiniciar
+    if (enteredKey === ADMIN_MASTER_KEY) {
+      this.dom.adminErrorMsg.style.display = 'none';
+      this.dom.confirmResetBtn.disabled = true;
+      this.dom.confirmResetBtn.innerHTML = `<span>⏳</span> Reiniciando...`;
+
+      await this.ranking.clearScores(ADMIN_MASTER_KEY);
+      this.renderLeaderboard();
+      this.closeAdminModal();
+      this.showToast('🗑️ Puntajes reiniciados a cero por el administrador');
+      this.audio.playFanfare();
+
+      this.dom.confirmResetBtn.disabled = false;
+      this.dom.confirmResetBtn.innerHTML = `<span>🗑️</span> Reiniciar Puntos`;
+    } else {
+      // Clave incorrecta: retroalimentación visual de rechazo y sonido
+      this.dom.adminErrorMsg.style.display = 'block';
+      this.dom.adminErrorMsg.textContent = '❌ Contraseña incorrecta. Solo el administrador puede reiniciar los puntos.';
+      const card = this.dom.adminModal.querySelector('.admin-modal-card');
+      if (card) {
+        card.classList.remove('modal-shake');
+        void card.offsetWidth; // Trigger reflow para reiniciar animación
+        card.classList.add('modal-shake');
+      }
+      this.audio.playWrong();
+      this.dom.adminPassInput.select();
     }
   }
 
   startQuiz() {
     const rawName = this.dom.playerNameInput.value.trim();
-    this.playerName = rawName || "Aprendiz ML";
+    this.playerName = rawName || "Aprendiz de Calidad";
     this.audio.playClick();
 
     // Reset de variables
@@ -689,23 +830,23 @@ class QuizApp {
     if (this.correctCount === 10) {
       this.dom.finalTrophy.textContent = '👑';
       this.dom.finalTitle.textContent = `¡Puntaje Perfecto, ${this.playerName}!`;
-      this.dom.finalSubtitle.textContent = "Dominas a la perfección los Árboles de Decisión y Scikit-Learn.";
-      this.dom.finalBadge.textContent = "🌟 Maestro Supremo de ML";
+      this.dom.finalSubtitle.textContent = "Dominas a la perfección la Familia ISO/IEC 33000 y el modelo de calidad de Chazin Food.";
+      this.dom.finalBadge.textContent = "🌟 Auditor Maestro de Calidad";
     } else if (this.correctCount >= 8) {
       this.dom.finalTrophy.textContent = '🏆';
       this.dom.finalTitle.textContent = `¡Gran Desempeño, ${this.playerName}!`;
-      this.dom.finalSubtitle.textContent = "Tienes conocimientos muy sólidos sobre los conceptos de la presentación.";
-      this.dom.finalBadge.textContent = "🌲 Especialista en Árboles";
+      this.dom.finalSubtitle.textContent = "Tienes conocimientos muy sólidos sobre evaluación de procesos y normas ISO.";
+      this.dom.finalBadge.textContent = "🛡️ Especialista en ISO/IEC 33000";
     } else if (this.correctCount >= 5) {
       this.dom.finalTrophy.textContent = '🥈';
-      this.dom.finalTitle.textContent = `¡Buen intento, ${this.playerName}!`;
-      this.dom.finalSubtitle.textContent = "Superaste la mayor parte del quiz. ¡Un repaso extra y llegarás a la cima!";
-      this.dom.finalBadge.textContent = "⚡ Aprendiz Destacado";
+      this.dom.finalTitle.textContent = `¡Buen Desempeño, ${this.playerName}!`;
+      this.dom.finalSubtitle.textContent = "Comprendes los conceptos clave del marco SPICE y la autoevaluación de Chazin Food.";
+      this.dom.finalBadge.textContent = "📋 Evaluador de Procesos";
     } else {
       this.dom.finalTrophy.textContent = '🌱';
       this.dom.finalTitle.textContent = `¡Ánimo, ${this.playerName}!`;
-      this.dom.finalSubtitle.textContent = "Repasa las diapositivas de la Profe Martha Ester y vuelve a intentarlo.";
-      this.dom.finalBadge.textContent = "🌱 Semilla en Crecimiento";
+      this.dom.finalSubtitle.textContent = "Repasa las diapositivas de Calidad de Software del Instructor Jairo y vuelve a intentarlo.";
+      this.dom.finalBadge.textContent = "🌱 Aprendiz en Formación";
     }
 
     // Efectos de celebración
@@ -740,11 +881,11 @@ class QuizApp {
   shareOnWhatsApp() {
     this.audio.playClick();
     const challengeUrl = this.getShareableUrl();
-    const message = `🌲 *¡Te reto al Quiz de Árboles de Decisión (SENA)!* 🧠⚡\n\n` +
+    const message = `🛡️ *¡Te reto al Quiz de Calidad de Software (ISO/IEC 33000 y Chazin Food - SENA)!* 📋✨\n\n` +
       `👤 Jugador: *${this.playerName}* ${this.playerAvatar}\n` +
       `🏆 Puntaje: *${this.score} pts* (${this.correctCount}/${QUIZ_QUESTIONS.length} aciertos)\n` +
       `⏱️ Tiempo: *${this.totalSeconds}s* | Racha Máxima: *${this.maxStreak}* 🔥\n\n` +
-      `¿Crees que puedes superar mi puntaje? ¡Acepta el duelo aquí! 👇\n` +
+      `¿Crees que puedes superar mi puntaje en evaluación de procesos? ¡Acepta el duelo aquí! 👇\n` +
       `${challengeUrl}`;
 
     const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
@@ -804,6 +945,7 @@ class QuizApp {
           <div style="font-size: 0.85rem; margin-top: 0.25rem; color: var(--text-secondary);">Completa el quiz para ser el primer aprendiz en el ranking.</div>
         </div>
       `;
+      if (this.dom.leaderboardRestHeader) this.dom.leaderboardRestHeader.style.display = 'none';
       this.dom.leaderboardList.innerHTML = '';
       return;
     }
@@ -824,7 +966,7 @@ class QuizApp {
         card.className = `podium-card ${podiumClasses[idx]}`;
         card.innerHTML = `
           <div class="podium-medal">${medals[idx]}</div>
-          <div class="podium-avatar">${player.avatar || '🌲'}</div>
+          <div class="podium-avatar">${player.avatar || '🛡️'}</div>
           <div class="podium-name" title="${player.name}">${player.name}</div>
           <div class="podium-score">${player.score} pts</div>
           <div class="podium-time">${player.correct}/10 • ${player.time}s</div>
@@ -833,9 +975,20 @@ class QuizApp {
       }
     });
 
-    // 2. Lista de posiciones (4+) - Soporta holgadamente 16, 30 y hasta 50 aprendices
+    // 2. Lista de posiciones (4+) - Claramente visible por debajo del podio
     const rest = scores.slice(3, 50);
     this.dom.leaderboardList.innerHTML = '';
+
+    if (this.dom.leaderboardRestHeader) {
+      if (rest.length > 0) {
+        this.dom.leaderboardRestHeader.style.display = 'flex';
+        if (this.dom.restBadgeCount) {
+          this.dom.restBadgeCount.textContent = `${rest.length} aprendiz${rest.length === 1 ? '' : 'es'}`;
+        }
+      } else {
+        this.dom.leaderboardRestHeader.style.display = 'none';
+      }
+    }
 
     rest.forEach((player, i) => {
       const pos = i + 4;
@@ -844,8 +997,8 @@ class QuizApp {
       row.className = `ranking-row ${isMe ? 'current-player' : ''}`;
       row.innerHTML = `
         <div class="ranking-left">
-          <span class="ranking-pos">#${pos}</span>
-          <span class="ranking-avatar">${player.avatar || '👤'}</span>
+          <span class="ranking-pos-badge">#${pos}</span>
+          <span class="ranking-avatar">${player.avatar || '🛡️'}</span>
           <span class="ranking-player-name">${player.name} ${isMe ? '(Tú)' : ''}</span>
         </div>
         <div class="ranking-right">

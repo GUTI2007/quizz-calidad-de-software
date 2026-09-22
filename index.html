@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: Árboles de Decisión y Clasificación en ML | SENA</title>
+  <title>Quiz: Calidad de Software e ISO/IEC 33000 | Chazin Food - SENA</title>
   
   <!-- SEO y OpenGraph para Previsualización en WhatsApp y Redes -->
-  <meta name="description" content="Quiz interactivo, rápido y fácil sobre Árboles de Decisión y Scikit-Learn en Python. ¡Compite en el ranking y desafía a tus compañeros!">
-  <meta property="og:title" content="🌲 Quiz de Árboles de Decisión en Machine Learning (SENA)">
-  <meta property="og:description" content="¿Puedes superar mi puntaje? Pon a prueba tus conocimientos sobre Gini, Scikit-Learn y nodos de decisión.">
+  <meta name="description" content="Quiz interactivo sobre Calidad de Software, Familia ISO/IEC 33000, antecedentes SPICE y aplicación a Chazin Food. ¡Compite en el ranking y desafía a tus compañeros!">
+  <meta property="og:title" content="🛡️ Quiz de Calidad de Software e ISO/IEC 33000 (SENA)">
+  <meta property="og:description" content="¿Puedes superar mi puntaje? Pon a prueba tus conocimientos sobre ISO/IEC 33000, antecedentes SPICE y Chazin Food.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#10b981">
+  <meta name="theme-color" content="#0ea5e9">
 
   <!-- Favicon con SVG Emoticono -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="styles.css">
@@ -31,8 +31,8 @@
     <!-- Barra Superior -->
     <header class="top-nav">
       <div class="brand-badge">
-        <span>🌲</span>
-        <span>ML QUIZ • <span class="sena">SENA</span></span>
+        <span>🛡️</span>
+        <span>CALIDAD DE SOFTWARE • <span class="sena">SENA</span></span>
       </div>
       <div class="nav-actions">
         <button id="sound-toggle-btn" class="icon-btn" title="Activar/Silenciar Sonido" aria-label="Control de sonido">
@@ -44,10 +44,10 @@
     <!-- Banner de Reto Activo (Se activa cuando se abre un enlace de desafío) -->
     <aside id="challenge-banner" class="challenge-banner" style="display: none;">
       <div class="challenge-content">
-        <span id="challenge-avatar" class="challenge-avatar">⚡</span>
+        <span id="challenge-avatar" class="challenge-avatar">🛡️</span>
         <div class="challenge-text">
           <h4 id="challenge-title">¡Has recibido un reto!</h4>
-          <p id="challenge-sub">¿Podrás superar su puntaje en este quiz?</p>
+          <p id="challenge-sub">¿Podrás superar su puntaje en este quiz de calidad?</p>
         </div>
       </div>
       <span class="challenge-chip">⚔️ MODO DUELO</span>
@@ -61,11 +61,11 @@
            ==================================================================== -->
       <section id="welcome-view" class="fade-in">
         <div class="welcome-header">
-          <span class="hero-pill">🐍 Python • Machine Learning</span>
-          <h1>Árboles de Decisión y Clasificación</h1>
-          <p>Un quiz muy fácil, interactivo y didáctico para evaluar los conceptos fundamentales del algoritmo.</p>
+          <span class="hero-pill">💼 Negociación • Calidad de Software</span>
+          <h1>Familia ISO/IEC 33000 y Chazin Food</h1>
+          <p>Un quiz muy fácil, interactivo y didáctico para evaluar la evolución de ISO/IEC 15504 (SPICE) y la evaluación de procesos en Chazin Food.</p>
           <div class="presentation-source">
-            📖 Basado en la presentación de la <strong>Instructora Martha Ester Gómez Adasme</strong>
+            📖 Basado en la presentación del <strong>Instructor Jairo Augusto Arboleda Londoño</strong>
           </div>
         </div>
 
@@ -73,19 +73,19 @@
           <label for="player-name" class="form-label">Tu Nombre o Apodo:</label>
           <div class="player-input-wrapper">
             <span class="input-icon">👤</span>
-            <input type="text" id="player-name" placeholder="Ej: Alexis, Henry, Martha..." maxlength="25" autocomplete="name">
+            <input type="text" id="player-name" placeholder="Ej: Alexis, Samuel, Jairo..." maxlength="25" autocomplete="name">
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Elige tu Avatar de Competencia:</label>
           <div class="avatar-grid" role="radiogroup">
-            <div class="avatar-opt selected" data-avatar="🌲" role="radio" aria-checked="true">🌲</div>
-            <div class="avatar-opt" data-avatar="⚡" role="radio" aria-checked="false">⚡</div>
-            <div class="avatar-opt" data-avatar="🤖" role="radio" aria-checked="false">🤖</div>
-            <div class="avatar-opt" data-avatar="🎓" role="radio" aria-checked="false">🎓</div>
-            <div class="avatar-opt" data-avatar="🏆" role="radio" aria-checked="false">🏆</div>
+            <div class="avatar-opt selected" data-avatar="🛡️" role="radio" aria-checked="true">🛡️</div>
+            <div class="avatar-opt" data-avatar="📋" role="radio" aria-checked="false">📋</div>
+            <div class="avatar-opt" data-avatar="📊" role="radio" aria-checked="false">📊</div>
             <div class="avatar-opt" data-avatar="🚀" role="radio" aria-checked="false">🚀</div>
+            <div class="avatar-opt" data-avatar="🏆" role="radio" aria-checked="false">🏆</div>
+            <div class="avatar-opt" data-avatar="⚡" role="radio" aria-checked="false">⚡</div>
           </div>
         </div>
 
@@ -163,8 +163,8 @@
         <div class="results-header">
           <div id="final-trophy" class="trophy-container">🏆</div>
           <h2 id="final-title">¡Quiz Completado!</h2>
-          <p id="final-subtitle">Has demostrado tus conocimientos en Árboles de Decisión.</p>
-          <span id="final-badge" class="results-badge">Maestro de ML</span>
+          <p id="final-subtitle">Has demostrado tus conocimientos en Calidad de Software, Familia ISO/IEC 33000 y Chazin Food.</p>
+          <span id="final-badge" class="results-badge">Experto en Calidad ISO</span>
         </div>
 
         <!-- Tarjeta de Duelo (Si vino por link de reto) -->
@@ -172,7 +172,7 @@
           <div class="duel-title">⚔️ Resultado del Duelo</div>
           <div class="duel-fighters">
             <div class="duel-fighter">
-              <span id="duel-user-avatar" class="duel-avatar">🌲</span>
+              <span id="duel-user-avatar" class="duel-avatar">🛡️</span>
               <span id="duel-user-name" class="duel-name">Tú</span>
               <span id="duel-user-score" class="duel-score">1200 pts</span>
             </div>
@@ -203,8 +203,8 @@
 
         <!-- Sección de Compartir y Desafío Viral -->
         <div class="share-section">
-          <h3><span>🚀</span> ¡Reta a tus amigos y compañeros!</h3>
-          <p>Comparte tu puntaje en WhatsApp o copia tu enlace de reto para que intenten superarte en la tabla de posiciones.</p>
+          <h3><span>🚀</span> ¡Reta a tus compañeros en WhatsApp!</h3>
+          <p>Comparte tu puntaje o copia tu enlace de reto para que intenten superarte en la tabla de posiciones de calidad.</p>
           <div class="share-buttons-row">
             <button id="whatsapp-share-btn" class="btn btn-whatsapp">
               <span>📲</span> Compartir en WhatsApp
@@ -232,8 +232,8 @@
         <div class="leaderboard-header">
           <h3><span>🏆</span> Tabla de Posiciones</h3>
           <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <button id="reset-leaderboard-btn" class="icon-btn" style="width: auto; height: auto; padding: 0.3rem 0.75rem; font-size: 0.75rem; border-radius: 999px; gap: 0.3rem;" title="Reiniciar puntajes a cero">
-              <span>🗑️</span> Reiniciar
+            <button id="reset-leaderboard-btn" class="icon-btn" style="width: auto; height: auto; padding: 0.3rem 0.75rem; font-size: 0.75rem; border-radius: 999px; gap: 0.3rem;" title="Reiniciar puntajes (Requiere clave de administrador)">
+              <span>🔒</span> Reiniciar
             </button>
             <span class="leaderboard-badge">TOP APRENDICES</span>
           </div>
@@ -242,6 +242,15 @@
         <!-- Podio Top 3 -->
         <div id="podium-wrapper" class="podium-wrapper">
           <!-- Inyectado por JS -->
+        </div>
+
+        <!-- Encabezado de Ranks 4 en adelante -->
+        <div id="leaderboard-rest-header" class="leaderboard-rest-header" style="display: none;">
+          <div class="rest-header-left">
+            <span>📋</span>
+            <span>Clasificación General (#4 en adelante)</span>
+          </div>
+          <span id="rest-badge-count" class="rest-badge">0 aprendices</span>
         </div>
 
         <!-- Lista de 4 en adelante -->
@@ -265,6 +274,41 @@
       </div>
     </div>
 
+    <!-- MODAL DE SEGURIDAD / ACCESO DE ADMINISTRADOR -->
+    <div id="admin-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card admin-modal-card">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span style="font-size: 1.4rem;">🔐</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Validación de Administrador</h3>
+          </div>
+          <button id="close-admin-modal-btn" class="icon-btn" aria-label="Cerrar modal de administrador">✕</button>
+        </div>
+        <div class="modal-body admin-modal-body">
+          <p class="admin-modal-desc">
+            Esta acción restablece a cero todos los puntajes del ranking. <strong>Solo tú como administrador</strong> puedes autorizar el reinicio.
+          </p>
+          <div class="form-group" style="margin-top: 1.25rem;">
+            <label for="admin-password-input" class="form-label">Ingresa la clave de administrador:</label>
+            <div class="player-input-wrapper">
+              <span class="input-icon">🔑</span>
+              <input type="password" id="admin-password-input" placeholder="Clave de seguridad..." autocomplete="current-password">
+              <button id="toggle-admin-pass-btn" type="button" class="icon-btn" style="width: 38px; height: 38px; background: transparent; border: none; font-size: 1rem;" title="Mostrar/ocultar contraseña">👁️</button>
+            </div>
+            <div id="admin-error-msg" class="admin-error-msg" style="display: none;">
+              ❌ Contraseña incorrecta. Acción denegada.
+            </div>
+          </div>
+          <div class="admin-actions-row">
+            <button id="cancel-admin-btn" class="btn btn-secondary" style="flex: 1;">Cancelar</button>
+            <button id="confirm-reset-btn" class="btn btn-danger" style="flex: 1.3;">
+              <span>🗑️</span> Reiniciar Puntos
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- TOAST NOTIFICACIÓN -->
     <div id="toast" class="toast">
       <span>✨</span>
@@ -274,11 +318,11 @@
     <!-- FOOTER CON CRÉDITOS OFICIALES -->
     <footer class="footer">
       <p>
-        <strong>Competencia:</strong> Python (Machine Learning) • 
-        <strong>Instructora:</strong> Martha Ester Gómez Adasme
+        <strong>Competencia:</strong> Negociación • 
+        <strong>Instructor:</strong> Jairo Augusto Arboleda Londoño
       </p>
       <p style="margin-top: 0.35rem;">
-        <strong>Aprendices:</strong> Samuel Gutierrez Franco • Henry Jafet Caballero Mendoza • Juan José Gallego Bran • Emanuel Henao González • Alexis Gómez Pavas
+        <strong>Aprendices:</strong> Samuel Gutiérrez Franco • Henry Jafet Caballero Mendoza • Juan José Gallego Bran • Emanuel Henao González • Alexis Gómez Pavas
       </p>
       <p style="margin-top: 0.35rem; color: var(--text-muted); font-size: 0.76rem;">
         Centro de Servicios y Gestión Empresarial — SENA

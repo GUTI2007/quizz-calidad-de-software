@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   // Encabezados CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, x-admin-key');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -89,8 +89,22 @@ export default async function handler(req, res) {
       return res.status(200).json(scores);
     }
 
-    // 3. REINICIAR TABLA (DELETE)
+    // 3. REINICIAR TABLA (DELETE - PROTEGIDO CON CLAVE DE ADMINISTRADOR)
     if (req.method === 'DELETE') {
+      const ADMIN_SECRET = process.env.ADMIN_KEY || 'sena2026';
+      const authHeader = req.headers['authorization'] || '';
+      const providedHeaderKey = req.headers['x-admin-key'] || (authHeader.startsWith('Bearer ') ? authHeader.substring(7) : null);
+      
+      let providedBodyKey = null;
+      try {
+        const parsedBody = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        providedBodyKey = parsedBody?.adminKey;
+      } catch (e) {}
+
+      if (providedHeaderKey !== ADMIN_SECRET && providedBodyKey !== ADMIN_SECRET) {
+        return res.status(401).json({ error: 'Acceso denegado: clave de administrador incorrecta o no autorizada.' });
+      }
+
       try {
         await fetch(`https://api.github.com/gists/${GIST_ID}`, {
           method: 'PATCH',
